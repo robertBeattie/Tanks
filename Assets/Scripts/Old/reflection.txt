@@ -1,0 +1,64 @@
+/*
+        RaycastHit hit;
+        if (Physics.Raycast(piviotTop.transform.position, piviotTop.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        {
+            if (hit.transform.gameObject == player)
+            {
+                Debug.DrawRay(piviotTop.transform.position, piviotTop.transform.TransformDirection(Vector3.forward) * hit.distance, Color.white);
+                fireBullet();
+            }
+            else
+            {
+                Debug.DrawRay(piviotTop.transform.position, piviotTop.transform.TransformDirection(Vector3.forward) * hit.distance, Color.red);
+                
+                //reflection 1
+                RaycastHit hit2;
+                Vector3 relect1 = Vector3.Reflect(piviotTop.transform.TransformDirection(Vector3.forward), hit.normal);
+
+                if (Physics.Raycast(hit.point, relect1, out hit2, Mathf.Infinity))
+                {
+                    if (hit2.transform.gameObject == player)
+                    {
+                        Debug.DrawRay(hit.point, relect1 * hit2.distance, Color.white);
+                        fireBullet();
+                    }
+                    else
+                    {
+                        Debug.DrawRay(hit.point, relect1 * hit2.distance, Color.yellow);
+                        //reflection 2
+                        RaycastHit hit3;
+                        Vector3 relect2 = Vector3.Reflect(relect1, hit2.normal);
+                        if (Physics.Raycast(hit2.point, relect2, out hit3, Mathf.Infinity))
+                        {
+                            if (hit3.transform.gameObject == player)
+                            {
+                                Debug.DrawRay(hit2.point, relect2 * hit3.distance, Color.white);
+                                fireBullet();
+                            }
+                            else
+                            {
+                                Debug.DrawRay(hit2.point, relect2 * hit3.distance, Color.green);
+                                //reflection 3
+                                RaycastHit hit4;
+                                Vector3 relect3 = Vector3.Reflect(relect2, hit3.normal);
+                                if (Physics.Raycast(hit3.point, relect3, out hit4, Mathf.Infinity))
+                                {
+                                    if (hit4.transform.gameObject == player)
+                                    {
+                                        Debug.DrawRay(hit3.point, relect3 * hit4.distance, Color.white);
+                                        fireBullet();
+                                    }
+                                    else
+                                    {
+                                        Debug.DrawRay(hit3.point, relect3 * hit4.distance, Color.blue);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                
+            }
+        }
+        */
